@@ -28,7 +28,7 @@ const ProductDetail = ({ addToCart }) => {
   const getProductDetails = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8000/api/v1/products/product-detail/${id}`
+        `first-project-e-commerce-backend-production.up.railway.app/api/v1/products/product-detail/${id}`
       );
       setProduct(response.data.product);
     } catch (error) {

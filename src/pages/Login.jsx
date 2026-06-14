@@ -20,7 +20,7 @@ const Login = ({ onLogin }) => {
 
         try {
             const response = await axios.post(
-                "http://localhost:8000/api/v1/users/login-user",
+                "first-project-e-commerce-backend-production.up.railway.app/api/v1/users/login-user",
                 { email, password },
                 { withCredentials: true }
             );

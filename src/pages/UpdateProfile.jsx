@@ -61,7 +61,7 @@ const UpdateProfile = () => {
             // withCredentials: true = نرسل الكوكيز (JWT token)
             // ============================================
             const response = await axios.get(
-                "http://localhost:8000/api/v1/users/user-profile",
+                "first-project-e-commerce-backend-production.up.railway.app/api/v1/users/user-profile",
                 { withCredentials: true }
             );
 
@@ -190,7 +190,7 @@ const UpdateProfile = () => {
             // لو حددته يدوياً بدون boundary = السيرفر ما يفهم الملف
             // ============================================
             const response = await axios.put(
-                "http://localhost:8000/api/v1/users/update-profile",
+                "first-project-e-commerce-backend-production.up.railway.app/api/v1/users/update-profile",
                 formData,
                 {
                     withCredentials: true

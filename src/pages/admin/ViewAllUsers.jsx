@@ -13,7 +13,7 @@ const ViewAllUsers = () => {
 
   const getAllUsers = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/api/v1/users/get-all-users", { withCredentials: true });
+      const response = await axios.get("first-project-e-commerce-backend-production.up.railway.app/api/v1/users/get-all-users", { withCredentials: true });
       setUsers(response.data.users);
     } catch (error) {
       console.log(error);
@@ -24,7 +24,7 @@ const ViewAllUsers = () => {
     setLoadingId(userId);
     try {
       const response = await axios.put(
-        `http://localhost:8000/api/v1/users/change-user-role/${userId}`,
+        `first-project-e-commerce-backend-production.up.railway.app/api/v1/users/change-user-role/${userId}`,
         { role: newRole },
         { withCredentials: true }
       );
@@ -42,7 +42,7 @@ const ViewAllUsers = () => {
     setDeletingId(userId);
     try {
       await axios.delete(
-        `http://localhost:8000/api/v1/users/delete-user/${userId}`,
+        `first-project-e-commerce-backend-production.up.railway.app/api/v1/users/delete-user/${userId}`,
         { withCredentials: true }
       );
       setUsers((prev) => prev.filter((u) => u._id !== userId));

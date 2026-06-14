@@ -40,7 +40,7 @@ const Profile = () => {
             // ليش؟ لأن السيرفر يحتاج التوكن عشان يعرف منو المستخدم
             // ============================================
             const response = await axios.get(
-                "http://localhost:8000/api/v1/users/user-profile",
+                "first-project-e-commerce-backend-production.up.railway.app/api/v1/users/user-profile",
                 {
                     withCredentials: true
                 }

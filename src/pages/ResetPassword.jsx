@@ -56,7 +56,7 @@ const ResetPassword = () => {
                 const formData = { password, confirmPassword };
 
                 const response = await axios.put(
-                    `http://localhost:8000/api/v1/users/reset-password/${token}`,
+                    `first-project-e-commerce-backend-production.up.railway.app/api/v1/users/reset-password/${token}`,
                     formData
                 );
 
