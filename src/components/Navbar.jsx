@@ -51,7 +51,7 @@ const Navbar = ({ cartCount = 0 }) => {
   // ============================================
   const logout = async () => {
     try {
-      await axios.get("first-project-e-commerce-backend-production.up.railway.app/api/v1/users/logout", {
+      await axios.get("https://first-project-e-commerce-backend-production.up.railway.app/api/v1/users/logout", {
         withCredentials: true
       });
       toast.success("Logged out successfully");

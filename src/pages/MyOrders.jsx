@@ -18,7 +18,7 @@ const MyOrders = () => {
     const getMyOrders = async () => {
       try {
         const response = await axios.get(
-          "first-project-e-commerce-backend-production.up.railway.app/api/v1/orders/my-order",
+          "https://first-project-e-commerce-backend-production.up.railway.app/api/v1/orders/my-order",
           { withCredentials: true }
         );
         setOrders(response.data.orders || []);

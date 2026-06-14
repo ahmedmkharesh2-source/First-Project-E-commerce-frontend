@@ -25,7 +25,7 @@ const Settings = () => {
     if (!confirm2) return;
 
     try {
-      await axios.delete("first-project-e-commerce-backend-production.up.railway.app/api/v1/users/delete-profile", {
+      await axios.delete("https://first-project-e-commerce-backend-production.up.railway.app/api/v1/users/delete-profile", {
         withCredentials: true
       });
 

@@ -39,7 +39,7 @@ const ForgetPasswordRequest = () => {
                 const formData = { email };
 
                 const response = await axios.post(
-                    "first-project-e-commerce-backend-production.up.railway.app/api/v1/users/reset-password-request",
+                    "https://first-project-e-commerce-backend-production.up.railway.app/api/v1/users/reset-password-request",
                     formData
                 );
 

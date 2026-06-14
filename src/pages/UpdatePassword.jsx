@@ -46,7 +46,7 @@ const UpdatePassword = () => {
                 };
 
                 const response = await axios.put(
-                    "first-project-e-commerce-backend-production.up.railway.app/api/v1/users/update-password",
+                    "https://first-project-e-commerce-backend-production.up.railway.app/api/v1/users/update-password",
                     formData,
                     { withCredentials: true }
                 );

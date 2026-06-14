@@ -40,7 +40,7 @@ const Profile = () => {
             // ليش؟ لأن السيرفر يحتاج التوكن عشان يعرف منو المستخدم
             // ============================================
             const response = await axios.get(
-                "first-project-e-commerce-backend-production.up.railway.app/api/v1/users/user-profile",
+                "https://first-project-e-commerce-backend-production.up.railway.app/api/v1/users/user-profile",
                 {
                     withCredentials: true
                 }

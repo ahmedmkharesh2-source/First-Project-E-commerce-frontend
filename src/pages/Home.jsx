@@ -24,7 +24,7 @@ const Home = () => {
     const getAllProducts = async () => {
         try {
             setIsLoading(true);
-            const response = await axios.get("first-project-e-commerce-backend-production.up.railway.app/api/v1/products/get-all-products?");
+            const response = await axios.get("https://first-project-e-commerce-backend-production.up.railway.app/api/v1/products/get-all-products?");
             const allProducts = response.data.products || [];
             
             console.log("=== المنتجات جت من الـ API ===");
