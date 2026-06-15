@@ -12,6 +12,10 @@ const Login = ({ onLogin }) => {
     const navigate = useNavigate();
     const location = useLocation();
     
+    // ============================================
+    // من أين جاء المستخدم؟
+    // لو جاء من صفحة محمية، نرجعه لها بعد الدخول
+    // ============================================
     const from = location.state?.from || "/";
 
     const handleLogin = async (e) => {
@@ -19,6 +23,9 @@ const Login = ({ onLogin }) => {
         setLoading(true);
 
         try {
+            // ============================================
+            // إرسال بيانات تسجيل الدخول للباك اند
+            // ============================================
             const response = await axios.post(
                 "https://first-project-e-commerce-backend-production.up.railway.app/api/v1/users/login-user",
                 { email, password },
@@ -27,33 +34,53 @@ const Login = ({ onLogin }) => {
 
             const { token, user } = response.data;
 
+            // ============================================
+            // التحقق من وجود الـ token
+            // ============================================
             if (!token) {
                 toast.error("Login failed: No token received from server");
                 setLoading(false);
                 return;
             }
-// ✅ حفظ في الكوكيز
-Cookies.set("token", token, { expires: 7, path: "/", sameSite: "None", secure: true });
-Cookies.set("userName", user?.name || user?.username || "User", { expires: 7, path: "/", sameSite: "None", secure: true });
-Cookies.set("userAvatar", user?.avatar || "", { expires: 7, path: "/", sameSite: "None", secure: true });
-Cookies.set("userRole", user?.role || "user", { expires: 7, path: "/", sameSite: "None", secure: true });
 
-            // ✅ حفظ في localStorage
+            // ============================================
+            // حفظ في الكوكيز مع إعدادات production
+            // sameSite: "None" + secure: true
+            // مهم جداً عشان الكوكيز تشتغل بين
+            // Vercel و Railway (دومينات مختلفة)
+            // ============================================
+            Cookies.set("token", token, { expires: 7, path: "/", sameSite: "None", secure: true });
+            Cookies.set("userName", user?.name || user?.username || "User", { expires: 7, path: "/", sameSite: "None", secure: true });
+            Cookies.set("userAvatar", user?.avatar || "", { expires: 7, path: "/", sameSite: "None", secure: true });
+            Cookies.set("userRole", user?.role || "user", { expires: 7, path: "/", sameSite: "None", secure: true });
+
+            // ============================================
+            // حفظ في localStorage أيضاً كاحتياطي
+            // لأن ProtectedRoute يعتمد على localStorage
+            // ============================================
             localStorage.setItem("token", token);
             localStorage.setItem("userName", user?.name || "User");
             localStorage.setItem("userRole", user?.role || "user");
 
             toast.success("Welcome back! تم تسجيل الدخول بنجاح");
 
-            // ✅ تحميل سلة المستخدم بعد تسجيل الدخول
+            // ============================================
+            // تحميل سلة المستخدم بعد تسجيل الدخول
+            // ============================================
             if (onLogin) onLogin();
 
-            // ✅ التوجيه حسب الـ role - مرة واحدة فقط
-            if (user?.role === "admin") {
-                navigate("/admin-dashboard", { replace: true });
-            } else {
-                navigate(from === "/login" ? "/" : from, { replace: true });
-            }
+            // ============================================
+            // تأخير بسيط 100ms عشان يضمن
+            // حفظ البيانات في localStorage قبل التوجيه
+            // بدونه: ProtectedRoute يتحقق قبل الحفظ
+            // ============================================
+            setTimeout(() => {
+                if (user?.role === "admin") {
+                    navigate("/admin-dashboard", { replace: true });
+                } else {
+                    navigate(from === "/login" ? "/" : from, { replace: true });
+                }
+            }, 100);
 
         } catch (error) {
             console.log("Login Error:", error);

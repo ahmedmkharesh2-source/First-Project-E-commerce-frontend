@@ -26,8 +26,7 @@ const Products = () => {
     const getProducts = async () => {
       try {
         setIsLoading(true);
-        const response = await axios.get("http://localhost:8000/api/v1/products/get-all-products");
-        const allProducts = response.data.products || [];
+const response = await axios.get("https://first-project-e-commerce-backend-production.up.railway.app/api/v1/products/get-all-products");        const allProducts = response.data.products || [];
         
         console.log("Products loaded:", allProducts.length);
         setProducts(allProducts);
