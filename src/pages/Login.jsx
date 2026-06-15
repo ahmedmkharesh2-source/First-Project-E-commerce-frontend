@@ -32,12 +32,11 @@ const Login = ({ onLogin }) => {
                 setLoading(false);
                 return;
             }
-
-            // ✅ حفظ في الكوكيز
-            Cookies.set("token", token, { expires: 7, path: "/", sameSite: "Lax" });
-            Cookies.set("userName", user?.name || user?.username || "User", { expires: 7, path: "/" });
-            Cookies.set("userAvatar", user?.avatar || "", { expires: 7, path: "/" });
-            Cookies.set("userRole", user?.role || "user", { expires: 7, path: "/" });
+// ✅ حفظ في الكوكيز
+Cookies.set("token", token, { expires: 7, path: "/", sameSite: "None", secure: true });
+Cookies.set("userName", user?.name || user?.username || "User", { expires: 7, path: "/", sameSite: "None", secure: true });
+Cookies.set("userAvatar", user?.avatar || "", { expires: 7, path: "/", sameSite: "None", secure: true });
+Cookies.set("userRole", user?.role || "user", { expires: 7, path: "/", sameSite: "None", secure: true });
 
             // ✅ حفظ في localStorage
             localStorage.setItem("token", token);
