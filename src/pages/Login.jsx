@@ -76,11 +76,15 @@ const Login = ({ onLogin }) => {
             // ============================================
             setTimeout(() => {
                 if (user?.role === "admin") {
-                    navigate("/admin-dashboard", { replace: true });
+                    // navigate("/admin-dashboard", { replace: true });
+                            window.location.href = "/admin-dashboard";
+
                 } else {
+                    console.log("Role before navigate:", user?.role);
+                    console.log("localStorage role:", localStorage.getItem("userRole"));
                     navigate(from === "/login" ? "/" : from, { replace: true });
                 }
-            }, 100);
+            }, 500);
 
         } catch (error) {
             console.log("Login Error:", error);
