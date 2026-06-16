@@ -25,7 +25,7 @@ const AdminDashboard = () => {
     const checkAdmin = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8000/api/v1/users/user-profile",
+          "http://https://first-project-e-commerce-backend-production.up.railway.app/api/v1/users/user-profile",
           { withCredentials: true }
         );
         const role = response.data.user.role;

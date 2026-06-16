@@ -27,7 +27,7 @@ const UpdateProduct = () => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/v1/products/product-detail/${id}`);
+        const response = await axios.get(`http://https://first-project-e-commerce-backend-production.up.railway.app/api/v1/products/product-detail/${id}`);
         const p = response.data.product;
         setTitle(p.title);
         setPrice(p.price);
@@ -46,7 +46,7 @@ const UpdateProduct = () => {
     e.preventDefault();
     try {
       const response = await axios.put(
-        `http://localhost:8000/api/v1/products/update-product/${id}`,
+        `http://https://first-project-e-commerce-backend-production.up.railway.app/api/v1/products/update-product/${id}`,
         { title, price, description, stock, category, newImages: newImages.length > 0 ? newImages : undefined, keepExistingImages: existingImages.length > 0 },
         { withCredentials: true }
       );

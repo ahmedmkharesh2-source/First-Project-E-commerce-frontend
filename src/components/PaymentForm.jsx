@@ -41,7 +41,7 @@ const PaymentForm = ({ total, cartItems, shippingInfo, onSuccess }) => {
 
     try {
       const { data } = await axios.post(
-        'http://localhost:8000/api/v1/payment/create-payment-intent',
+        'http://https://first-project-e-commerce-backend-production.up.railway.app/api/v1/payment/create-payment-intent',
         { amount: total },
         { withCredentials: true }
       )
@@ -62,7 +62,7 @@ const PaymentForm = ({ total, cartItems, shippingInfo, onSuccess }) => {
         }))
 
         await axios.post(
-          'http://localhost:8000/api/v1/orders/create-order',
+          'http://https://first-project-e-commerce-backend-production.up.railway.app/api/v1/orders/create-order',
           {
             orderItems,
             shippingInfo,

@@ -81,7 +81,7 @@ const Login = ({ onLogin }) => {
                 } else {
                     navigate(from === "/login" ? "/" : from, { replace: true });
                 }
-            }, 500);
+            }, 100);
 
         } catch (error) {
             console.log("Login Error:", error);

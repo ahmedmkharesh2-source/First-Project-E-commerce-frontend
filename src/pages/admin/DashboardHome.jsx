@@ -19,7 +19,7 @@ const DashboardHome = () => {
   useEffect(() => {
     const getAllProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/v1/products/get-all-products");
+        const response = await axios.get("http://https://first-project-e-commerce-backend-production.up.railway.app/api/v1/products/get-all-products");
         setProducts(response.data.products);
       } catch (error) {
         toast.error(error.response?.data?.message);
@@ -28,7 +28,7 @@ const DashboardHome = () => {
 
     const getCombineData = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/v1/users/combin-data", { withCredentials: true });
+        const response = await axios.get("http://https://first-project-e-commerce-backend-production.up.railway.app/api/v1/users/combin-data", { withCredentials: true });
         setStats(response.data);
       } catch (error) {
         toast.error(error.response?.data?.message);
@@ -41,7 +41,7 @@ const DashboardHome = () => {
 
   const deleteProduct = async (id) => {
     try {
-      await axios.delete(`http://localhost:8000/api/v1/products/delete-product/${id}`, { withCredentials: true });
+      await axios.delete(`http://https://first-project-e-commerce-backend-production.up.railway.app/api/v1/products/delete-product/${id}`, { withCredentials: true });
       setProducts(products.filter((item) => item._id !== id));
       toast.success("Product Deleted Successfully");
     } catch (error) {

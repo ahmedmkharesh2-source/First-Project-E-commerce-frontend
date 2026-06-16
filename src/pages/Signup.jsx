@@ -62,7 +62,7 @@ const Signup = () => {
 
         try {
             const response = await axios.post(
-                "http://localhost:8000/api/v1/users/register-user",
+                "http://https://first-project-e-commerce-backend-production.up.railway.app/api/v1/users/register-user",
                 { name, email, password, avatar: avatarBase64 }
             );
 
