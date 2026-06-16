@@ -30,7 +30,7 @@ const Contact = () => {
 
     try {
       // هنا تقدر تضيف API لإرسال الرسالة
-      // await axios.post("http://https://first-project-e-commerce-backend-production.up.railway.app/api/v1/contact", formData)
+      // await axios.post("https://first-project-e-commerce-backend-production.up.railway.app/api/v1/contact", formData)
       
       console.log("Form submitted:", formData)
       toast.success("Message sent successfully! We'll get back to you soon.")

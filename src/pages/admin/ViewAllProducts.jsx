@@ -31,7 +31,7 @@ const ViewAllProducts = () => {
         console.log("=== بدء جلب المنتجات ===");
         
         const response = await axios.get(
-          "http://https://first-project-e-commerce-backend-production.up.railway.app/api/v1/products/get-all-products"
+          "https://first-project-e-commerce-backend-production.up.railway.app/api/v1/products/get-all-products"
         );
         
         console.log("الرد الكامل:", response);
@@ -111,7 +111,7 @@ const ViewAllProducts = () => {
     
     try {
       await axios.delete(
-        `http://https://first-project-e-commerce-backend-production.up.railway.app/api/v1/products/delete-product/${id}`,
+        `https://first-project-e-commerce-backend-production.up.railway.app/api/v1/products/delete-product/${id}`,
         { withCredentials: true }
       );
       

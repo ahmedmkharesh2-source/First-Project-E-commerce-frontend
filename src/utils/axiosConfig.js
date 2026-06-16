@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 
 // Create axios instance with default config
 const axiosInstance = axios.create({
-  baseURL: 'http://https://first-project-e-commerce-backend-production.up.railway.app/api/v1',
+  baseURL: 'https://first-project-e-commerce-backend-production.up.railway.app/api/v1',
   withCredentials: true,
 });
 

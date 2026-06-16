@@ -27,7 +27,7 @@ const AddProduct = () => {
 
     try {
       const response = await axios.post(
-        "http://https://first-project-e-commerce-backend-production.up.railway.app/api/v1/products/create-product",
+        "https://first-project-e-commerce-backend-production.up.railway.app/api/v1/products/create-product",
         { title, price, description, stock, images, category },
         { withCredentials: true }
       );
