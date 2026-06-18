@@ -122,7 +122,7 @@ const Home = () => {
         <div className="min-h-screen bg-[#0f172a]">
             
             {/* شريط البحث والفلاتر */}
-            <div className="bg-[#1e293b] border-b border-slate-700/50 sticky top-0 z-50">
+            <div className="bg-[#1e293b] border-b border-slate-700/50 sticky top-0 z-30">
               <div className="max-w-7xl mx-auto px-4 py-4">
                 <div className="flex flex-col lg:flex-row gap-3 items-center">
                   
